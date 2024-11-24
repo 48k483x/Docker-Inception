@@ -15,7 +15,7 @@ services:
       - inception
     volumes:
       - wordpress:/var/www/html
-    retart: always
+    restart: always
 
 
 

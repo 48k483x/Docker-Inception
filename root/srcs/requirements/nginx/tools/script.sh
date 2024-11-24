@@ -1,14 +1,14 @@
 #!/bin/bash
 
 #1. Check for required envirenement variables
-if [-z "$SSL_CERTIFICATE"] || [-z "$SSL_CERTIFICATE_KEY"] || [-z "$LOGIN"]; then
+if [ -z "$SSL_CERTIFICATE" ] || [ -z "$SSL_CERTIFICATE_KEY" ] || [ -z "$LOGIN" ]; then
     echo "Error: Some important keys are missing..."
     echo "Ensure SSL_CERTIFICATE, SSL_CERTIFICATE_KEY, and LOGIN are set on .env file"
     exit 1
 fi
 
 #2. Generate SSH certificate if it doesn't exist
-if [! -f "$SSL_CERTIFICATE"] || [! -f "$SSL_CERTIFICATE_KEY"]; then
+if [ ! -f "$SSL_CERTIFICATE" ] || [ ! -f "$SSL_CERTIFICATE_KEY" ]; then
     echo "Generating SSL certificate..."
     openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
         -keyout "$SSL_CERTIFICATE_KEY" -out "$SSL_CERTIFICATE" \
@@ -32,7 +32,7 @@ chmod 644 /etc/ssl/certs/nginx.crt
 echo "Configuring nginx..."
 envsubst '${SSL_CERTIFICATE} ${SSL_CERTIFICATE_KEY} ${LOGIN}' \
     < /etc/nginx/sites-enabled/default > /etc/nginx/sites-enabled/default.tmp
-mv /etc/nginx/site-enabled/default.tmp /ect/nginx/site-enabled/default
+mv /etc/nginx/sites-enabled/default.tmp /etc/nginx/sites-enabled/default
 
 #5. Set proper ownership for web directory 
 chown -R www-data:www-data /var/www/html/
