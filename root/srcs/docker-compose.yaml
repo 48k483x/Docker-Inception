@@ -1,0 +1,27 @@
+version: '3.5'
+
+services:
+  nginx:
+    build: ./requirements/nginx
+    image: nginx:1337
+    container_name: nginx
+    #depends_on:
+    #- wordpress
+    env_file:
+      - .env
+    ports:
+      - "403:403"
+    networks:
+      - inception
+    volumes:
+      - wordpress:/var/www/html
+    retart: always
+
+
+
+networks:
+  inception:
+    driver: bridge
+
+volumes:
+  wordpress:
