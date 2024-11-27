@@ -10,11 +10,11 @@ services:
     env_file:
       - .env
     ports:
-      - "403:403"
+      - "443:443"
     networks:
       - inception
     volumes:
-      - wordpress:/var/www/html
+      - wordpress:/var/www/html/
     restart: always
 
   wordpress:
@@ -38,7 +38,7 @@ services:
     env_file:
       - .env
     volumes:
-      - wordpress:/var/lib/mysql/
+      - /var/lib/mysql/
     networks:
       - inception
     restart: always
