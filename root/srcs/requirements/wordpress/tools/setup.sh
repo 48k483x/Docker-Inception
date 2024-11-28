@@ -17,7 +17,7 @@ if [ ! -f "wp-config.php" ]; then
     
     # Install wordpress core
     wp core install \
-        --url="https://localhost" \
+        --url="https://$DOMAIN_NAME" \
         --title="$WP_TITLE" \
         --admin_name="$WP_ADMIN_NAME" \
         --admin_password="$WP_ADMIN_PASSWORD" \

@@ -5,7 +5,9 @@ all:
 	@if [[ $(shell uname) == "Darwin" ]]; then \
 		colima start; \
 	fi
-	docker-compose -f ./srcs/docker-compose.yaml up --build
+	mkdir -p /home/achahrou/data/db
+	mkdir -p /home/achahrou/data/wordpress
+	docker-compose -f ./srcs/docker-compose.yaml up -d --build
 
 fclean:
 	-docker stop $$(docker ps -aq)
