@@ -19,4 +19,4 @@ WORKDIR /var/www/html/
 # Expose port 9000 for PHP-FPM
 EXPOSE 9000
 
-CMD ["/setup.sh"]
+CMD ["/bin/bash", "/setup.sh"]
