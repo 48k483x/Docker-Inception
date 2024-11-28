@@ -43,6 +43,32 @@ services:
       - inception
     restart: always
 
+  redis:
+    build: ./requirements/bonus/redis/
+    image: redis
+    container_name: redis
+    volumes:
+      - wordpress:/var/www/html/
+    depends_on:
+      - wordpress
+    networks:
+      - inception
+    restart: always
+  
+  cadvisor:
+    build: ./requirements/bonus/cadvisor/
+    image: cadvisor
+    container_name: cadvisor
+    networks:
+      - inception
+    ports:
+      - "8080:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+
 
 networks:
   inception:
