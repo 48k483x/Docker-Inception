@@ -8,7 +8,7 @@ echo "$ftp_user:$ftp_pwd" | /usr/sbin/chpasswd
 echo "$ftp_user" | tee -a /etc/vsftpd.userlist 
 
 mkdir -p  /home/$ftp_user/ftp
-
+echo "directory created"
 chown nobody:nogroup /home/$ftp_user/ftp
 chmod a-w /home/$ftp_user/ftp
 
@@ -22,7 +22,7 @@ echo "
 local_enable=YES
 allow_writeable_chroot=YES
 pasv_enable=YES
-local_root=/home/sami/ftp
+local_root=/home/$ftp_user/ftp
 pasv_min_port=40000
 pasv_max_port=40005
 userlist_file=/etc/vsftpd.userlist" >> /etc/vsftpd.conf
