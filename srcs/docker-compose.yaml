@@ -57,14 +57,4 @@ volumes:
     driver_opts:
       type: none
       o: bind
-<<<<<<< HEAD
-      device: /home/achahrou/data/wordpress
-
-  db:
-    driver_opts:
-      type: none
-      o: bind
-      device: /home/achahrou/data/db
-=======
       device: /home/achahrou/data/wordpress/
->>>>>>> 71212b2
