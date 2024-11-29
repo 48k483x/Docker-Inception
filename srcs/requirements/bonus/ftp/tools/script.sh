@@ -7,16 +7,14 @@ adduser $ftp_user --disabled-password
 echo "$ftp_user:$ftp_pwd" | /usr/sbin/chpasswd
 echo "$ftp_user" | tee -a /etc/vsftpd.userlist 
 
-mkdir -p  /home/$ftp_user/ftp
-echo "directory created"
-chown nobody:nogroup /home/$ftp_user/ftp
+mkdir -p  /home/$ftp_user/ftp/files/
+chown -R $ftp_user:$ftp_user /home/$ftp_user/ftp/
+chmod 777 /home/$ftp_user/ftp
 chmod a-w /home/$ftp_user/ftp
 
-mkdir /home/$ftp_user/ftp/files
-chown $ftp_user:$ftp_user /home/$ftp_user/ftp/files
+sed -i 's/^#\?write_enable=NO/write_enable=YES/' /etc/vsftpd.conf
+sed -i 's/^#\?chroot_local_user=NO/chroot_local_user=YES/' /etc/vsftpd.conf
 
-sed -i -r "s/#write_enable=YES/write_enable=YES/1"   /etc/vsftpd.conf
-sed -i -r "s/#chroot_local_user=YES/chroot_local_user=YES/1"   /etc/vsftpd.conf
 
 echo "
 local_enable=YES
