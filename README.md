@@ -10,23 +10,11 @@ const Inception = {
 ## Directory Structure 🗂️  
 ```plaintext
 project_root/
-│
-├── Makefile                   # Automates the setup process
-│
+├── Makefile                # Automates setup
 └── srcs/
-    ├── docker-compose.yml     # Orchestrates the containers
-    ├── .env                   # Stores environment variables
+    ├── docker-compose.yml  # Manages containers
+    ├── .env                # Environment variables
     └── requirements/
-        ├── nginx/
-        │   ├── Dockerfile     # Defines the NGINX container
-        │   ├── conf/          # Configuration files for NGINX
-        │   └── tools/         # Helper scripts/tools
-        ├── mariadb/
-        │   ├── Dockerfile     # Defines the MariaDB container
-        │   ├── conf/          # Configuration files for MariaDB
-        │   └── tools/         # Helper scripts/tools
-        └── wordpress/
-            ├── Dockerfile     # Defines the WordPress container
-            ├── conf/          # Configuration files for WordPress
-            └── tools/         # Helper scripts/tools 
-
+        ├── nginx/          # NGINX setup
+        ├── mariadb/        # MariaDB setup
+        └── wordpress/      # WordPress setup 
