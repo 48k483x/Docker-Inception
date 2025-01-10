@@ -29,5 +29,5 @@ project_root/
         └── wordpress/
             ├── Dockerfile     # Defines the WordPress container
             ├── conf/          # Configuration files for WordPress
-            └── tools/         # Helper scripts/tools
+            └── tools/         # Helper scripts/tools 
 
