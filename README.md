@@ -1,12 +1,11 @@
 # Inception 🐳
-
-## Project Goal  
-Create a secure and scalable web infrastructure using **Docker**.
-
-## What You'll Build 🚀  
-- **NGINX**: A web server with TLS encryption.  
-- **MariaDB**: A reliable and secure database.  
-- **WordPress**: A dynamic content management system.
+```js
+const Inception = {
+  "goal": "Dockerize NGINX, WordPress, MariaDB",
+  "setup": "VM + Makefile",
+  "rules": ["Custom images", "Env vars only"]
+};
+```
 
 ## Directory Structure 🗂️  
 ```plaintext
